@@ -8,12 +8,27 @@ request.getAsync = Promise.promisify(request.get);
 const api = require ('./lib/api');
 const Project = require('./lib/project');
 
+let cache = {};
 
 exports = module.exports = VigiglobeNode;
 
 function VigiglobeNode (projectID)
 {
-    return new Project (projectID);
+    return cache[projectID] || (cache[projectID] = new Project (projectID));
 }
 
 VigiglobeNode.query = api.query;
+
+VigiglobeNode.now = api.now;
+
+VigiglobeNode.clearCache = function (projectID)
+{
+    if (projectID)
+    {
+        delete cache[projectID];
+    }
+    else
+    {
+        cache = {};
+    }
+};
