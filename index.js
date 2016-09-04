@@ -3,6 +3,10 @@
 const request = require ('request');
 const Promise = require ('bluebird');
 
+Promise.config({
+    cancellation: true,
+});
+
 request.getAsync = Promise.promisify(request.get);
 
 const api = require ('./lib/api');
