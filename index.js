@@ -36,3 +36,9 @@ VigiglobeNode.clearCache = function (projectID)
         cache = {};
     }
 };
+
+VigiglobeNode.log = function (active)
+{
+    if (typeof active === 'undefined') return api.log;
+    api.log = active;
+};
