@@ -25,6 +25,14 @@ VigiglobeNode.query = api.query;
 
 VigiglobeNode.now = api.now;
 
+VigiglobeNode.parseDate = api.parseDate;
+VigiglobeNode.startAt = api.startAt;
+VigiglobeNode.endAt = api.endAt;
+
+
+VigiglobeNode.parseDate = api.parseDate;
+VigiglobeNode.timeInfos = api.timeInfos;
+
 VigiglobeNode.clearCache = function (projectID)
 {
     if (projectID)
